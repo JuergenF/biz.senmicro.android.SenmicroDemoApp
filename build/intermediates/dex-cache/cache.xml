@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Projects\Docs\Senmicro\android\biz.senmicro.android.SenmicroDemoApp\app\libs\firebase-client-jvm-1.0.16.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="0e1974785797fe0df9df5c8305cc1a04cff46b06">
+        <dex dex="C:\Projects\Docs\Senmicro\android\biz.senmicro.android.SenmicroDemoApp\app\build\intermediates\pre-dexed\debug\firebase-client-jvm-1.0.16-e1d79fd4d28a9beaeb375cfaaadd1ef0709abced.jar" />
+    </item>
+
+</items>

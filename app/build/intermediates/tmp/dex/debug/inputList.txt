@@ -1,0 +1,2 @@
+C:\Projects\Docs\Senmicro\android\biz.senmicro.android.SenmicroDemoApp\app\build\intermediates\classes\debug
+C:\Projects\Docs\Senmicro\android\biz.senmicro.android.SenmicroDemoApp\app\build\intermediates\pre-dexed\debug\firebase-client-jvm-1.0.16-e1d79fd4d28a9beaeb375cfaaadd1ef0709abced.jar

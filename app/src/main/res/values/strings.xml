@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Senmicro Demo App</string>
+    
+    <string name="led_header">LEDs</string>
+    <string name="button_header">Button Status</string>
+    <string name="pot_header">Potentiometer</string>
+    
+    <string name="button_1">Taster 1:</string>
+    <string name="button_2">Taster 2:</string>
+    <string name="button_3">Taster 3:</string>
+    <string name="button_4">Taster 4:</string>
+    
+    <string name="not_pressed">Nicht gedrückt.</string>
+    <string name="pressed">Gedrückt.</string>
+    
+    <string name="weblink">www.senmicro.biz/android</string>
+    
+    <string name="error_default">An unknown error has occurred.  Please contact office@senmicro.biz so that we can determine the source of the issue and attempt to fix it.</string>
+    <string name="error_missing_open_accessory_framework">The Android OS version that you are running is missing the com.android.future.usb library that is required to run this demo.  The OS version that you are running should contain these libraries.  Please contact office@senmicro.biz so that we can work to correct this issue for this device. </string>
+    <string name="error_firmware_protocol">The firmware version on the attached device requires a protocol that is not supported by this version of the application.  Please check the Android Marketplace to see if there is an update available for this application. If you are using the source version, please check www.senmicro.biz for the latest application source code.</string>
+</resources>
