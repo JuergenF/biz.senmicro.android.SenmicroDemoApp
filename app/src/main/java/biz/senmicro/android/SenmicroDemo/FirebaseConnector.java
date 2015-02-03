@@ -15,7 +15,7 @@ public class FirebaseConnector {
 	private Firebase pushItems;
 
 	public FirebaseConnector() {
-		rootRef = new Firebase("https://burning-fire-7240.firebaseio.com/");
+		rootRef = new Firebase("https://intense-fire-5365.firebaseio.com/");
 		pushItems = rootRef.child("pushItems");
 		
 		rootRef.child("writeItems").addChildEventListener(new ChildEventListener() {
