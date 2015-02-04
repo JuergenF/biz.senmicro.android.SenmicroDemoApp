@@ -21,12 +21,18 @@
     <string name="error_firmware_protocol">The firmware version on the attached device requires a protocol that is not supported by this version of the application.  Please check the Android Marketplace to see if there is an update available for this application. If you are using the source version, please check www.senmicro.biz for the latest application source code.</string>
 
 
-    <string name="geofence">Geofence</string>
+    <string name="actual_data">Aktuelle Daten</string>
+    <string name="actual_imei_label">IMEI</string>
+    <string name="actual_position_lat_label">Breitengrad</string>
+    <string name="actual_position_long_label">Längengrad</string>
+
+     <string name="geofence">Geofence</string>
     <string name="latitude">Breitengrad</string>
     <string name="longitude">Längengrad</string>
     <string name="menu_item_clear_geofence">Lösche Geofence</string>
     <string name="register_geofence">Speichere Geofence</string>
     <string name="unregister_geofence">Lösche Geofence</string>
+    <string name="set_to_here">Aktuelle Position</string>
     <string name="radius">Radius</string>
 
     <!-- Number patterns -->

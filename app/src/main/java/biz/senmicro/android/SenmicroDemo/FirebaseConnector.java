@@ -13,10 +13,12 @@ public class FirebaseConnector {
 	private Firebase rootRef;
 	private Map<String,LEDControl> ledControls = new HashMap<String,LEDControl>();
 	private Firebase pushItems;
+    private Firebase geofenceItems;
 
 	public FirebaseConnector() {
 		rootRef = new Firebase("https://intense-fire-5365.firebaseio.com/");
 		pushItems = rootRef.child("pushItems");
+        geofenceItems = rootRef.child("geofenceItems");
 		
 		rootRef.child("writeItems").addChildEventListener(new ChildEventListener() {
 
@@ -68,4 +70,14 @@ public class FirebaseConnector {
 		value.put("timestamp", System.currentTimeMillis());
 		pushItems.child(button).setValue(value);
 	}
+
+    public void addGeofenceItem() {
+        Firebase geofenceRef = geofenceItems.push();
+        Map<String,Object> value = new HashMap<String,Object>();
+        value.put("phonenumber", "06641234567");
+        value.put("latitude", "12.34");
+        value.put("longitude", "98.76");
+        value.put("type", "enter geofence");
+        geofenceRef.setValue(value);
+    }
 }

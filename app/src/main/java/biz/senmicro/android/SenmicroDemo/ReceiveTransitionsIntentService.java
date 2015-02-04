@@ -10,6 +10,7 @@ import android.support.v4.app.TaskStackBuilder;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.LocationClient;
@@ -23,11 +24,14 @@ import java.util.List;
  */
 public class ReceiveTransitionsIntentService extends IntentService {
 
+    private FirebaseConnector firebaseConnector;
     /**
      * Sets an identifier for this class' background thread
      */
     public ReceiveTransitionsIntentService() {
+
         super("ReceiveTransitionsIntentService");
+        firebaseConnector = new FirebaseConnector();
     }
 
     /**
@@ -89,6 +93,10 @@ public class ReceiveTransitionsIntentService extends IntentService {
 
                 sendNotification(transitionType, ids);
 
+                // ToDo FoX
+                //(Geofence)(geofences.get(0)).
+                //saveToFirebase(ids, transitionType);
+
                 // Log the transition type and a message
                 Log.d(GeofenceUtils.APPTAG,
                         getString(
@@ -149,6 +157,10 @@ public class ReceiveTransitionsIntentService extends IntentService {
 
         // Issue the notification
         mNotificationManager.notify(0, builder.build());
+    }
+
+    private void saveToFirebase() {
+        firebaseConnector.addGeofenceItem();
     }
 
     /**
