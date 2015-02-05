@@ -23,17 +23,15 @@
 
     <string name="actual_data">Aktuelle Daten</string>
     <string name="actual_imei_label">IMEI</string>
-    <string name="actual_position_lat_label">Breitengrad</string>
-    <string name="actual_position_long_label">Längengrad</string>
-
-     <string name="geofence">Geofence</string>
-    <string name="latitude">Breitengrad</string>
-    <string name="longitude">Längengrad</string>
+    <string name="geofence">Geofence</string>
+    <string name="latitude_label">Breitengrad</string>
+    <string name="longitude_label">Längengrad</string>
     <string name="menu_item_clear_geofence">Lösche Geofence</string>
     <string name="register_geofence">Speichere Geofence</string>
     <string name="unregister_geofence">Lösche Geofence</string>
     <string name="set_to_here">Aktuelle Position</string>
-    <string name="radius">Radius</string>
+    <string name="radius_label">Radius</string>
+    <string name="radius_default_value">1000</string>
 
     <!-- Number patterns -->
     <string name="lat_lng_pattern">* ###.00000000;* -###.00000000</string>
@@ -62,11 +60,11 @@
     <string name="geofence_input_error_radius_invalid">
         Invalid radius(s). Must be 1 meter or greater.
     </string>
-    <string name="geofence_transition_entered">Entered</string>
+    <string name="geofence_transition_entered">Entered Geofence</string>
     <string name="geofence_transition_error_detail">
         Geofence transition error, code %1$d message %2$s.
     </string>
-    <string name="geofence_transition_exited">Exited</string>
+    <string name="geofence_transition_exited">Exited Geofence</string>
     <string name="geofence_transition_invalid_type">
         Geofence transition error. Invalid type %1$d in geofences %2$s
     </string>

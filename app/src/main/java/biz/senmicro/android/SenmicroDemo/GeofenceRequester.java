@@ -277,6 +277,10 @@ public class GeofenceRequester
 
             // Create an Intent pointing to the IntentService
             Intent intent = new Intent(mActivity, ReceiveTransitionsIntentService.class);
+            // Save the requesters data
+            MainActivity activity = (MainActivity)mActivity;
+            intent.putExtra("deviceid", activity.mActualIMEI.getText());
+
             /*
              * Return a PendingIntent to start the IntentService.
              * Always create a PendingIntent sent to Location Services

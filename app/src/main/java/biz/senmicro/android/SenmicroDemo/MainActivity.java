@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.LocalBroadcastManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -41,7 +42,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class MainActivity extends Activity{
+public class MainActivity extends FragmentActivity {
 	private final static int USBAccessoryWhat = 0;
 
 	public static final int UPDATE_LED_SETTING		 	= 1;
@@ -137,7 +138,7 @@ public class MainActivity extends Activity{
     // Handle position data in the UI
     private TextView mActualPositionLat;
     private TextView mActualPositionLong;
-    private TextView mActualIMEI;
+    public TextView mActualIMEI;
     private Location mActualPosition;
 
 	/** Called when the activity is first created. */
@@ -155,9 +156,11 @@ public class MainActivity extends Activity{
 		}
         
 		firebaseConnector = new FirebaseConnector();
-        setContentView(R.layout.main);
 
        	accessoryManager = new USBAccessoryManager(this.getApplicationContext(), handler, USBAccessoryWhat);
+
+        // Attach to the main UI
+        setContentView(R.layout.main);
 
         try {
     		//Set the link to the message handler for this class
@@ -295,9 +298,6 @@ public class MainActivity extends Activity{
         // Instantiate a Geofence remover
         mGeofenceRemover = new GeofenceRemover(this);
 
-        // Attach to the main UI
-        setContentView(R.layout.main);
-
         // Get handles to the Geofence editor fields in the UI
         mLatitude1 = (EditText) findViewById(R.id.value_latitude_1);
         mLongitude1 = (EditText) findViewById(R.id.value_longitude_1);
@@ -308,7 +308,7 @@ public class MainActivity extends Activity{
 
         mActualIMEI = (TextView) findViewById(R.id.value_actual_imei);
         TelephonyManager tMgr =(TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
-        mActualIMEI.setText(tMgr.getDeviceId());
+        mActualIMEI.setText(String.valueOf(tMgr.getDeviceId()));
 
         // Acquire a reference to the system Location Manager
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
@@ -323,21 +323,27 @@ public class MainActivity extends Activity{
             }
 
             public void onStatusChanged(String provider, int status, Bundle extras) {
+                Log.w("SenmicroDemoApp", "location status changed");
             }
 
             public void onProviderEnabled(String provider) {
+                Log.w("SenmicroDemoApp", "location provider enabled");
             }
 
             public void onProviderDisabled(String provider) {
+                Log.w("SenmicroDemoApp", "location provider disabled");
             }
         };
 
         // Register the listener with the Location Manager to receive location updates
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
         // Set last known location
         Location lastLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         mActualPositionLat.setText(String.valueOf(lastLocation.getLatitude()));
         mActualPositionLong.setText(String.valueOf(lastLocation.getLongitude()));
+        mLatitude1.setText(String.valueOf(lastLocation.getLatitude()));
+        mLongitude1.setText(String.valueOf(lastLocation.getLongitude()));
         mActualPosition = lastLocation;
     }
 	
@@ -836,9 +842,8 @@ public class MainActivity extends Activity{
             // Check the action code and determine what to do
             String action = intent.getAction();
 
-            Toast.makeText(context, "onReceive ..." +  action,
-                    Toast.LENGTH_SHORT).show();
-
+            //Toast.makeText(context, "onReceive ..." +  action,
+            //        Toast.LENGTH_SHORT).show();
 
             // Intent contains information about errors in adding or removing geofences
             if (TextUtils.equals(action, GeofenceUtils.ACTION_GEOFENCE_ERROR)) {
@@ -873,8 +878,8 @@ public class MainActivity extends Activity{
          */
         private void handleGeofenceStatus(Context context, Intent intent) {
             // Notify user that previous request hasn't finished.
-            Toast.makeText(context, "Geofence Status change",
-                    Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Geofence Status change",
+            //        Toast.LENGTH_SHORT).show();
         }
 
         /**
@@ -889,6 +894,9 @@ public class MainActivity extends Activity{
              * here. The current design of the app uses a notification to inform the
              * user that a transition has occurred.
              */
+            // Notify user that previous request hasn't finished.
+            Toast.makeText(context, "Geofence Transition occoured!!!",
+                    Toast.LENGTH_SHORT).show();
         }
 
         /**
@@ -931,7 +939,8 @@ public class MainActivity extends Activity{
             if (dialog != null) {
                 ErrorDialogFragment errorFragment = new ErrorDialogFragment();
                 errorFragment.setDialog(dialog);
-                //errorFragment.show(getSupportFragmentManager(), GeofenceUtils.APPTAG);
+                errorFragment.show(getSupportFragmentManager(), GeofenceUtils.APPTAG);
+
             }
             return false;
         }
@@ -1097,7 +1106,7 @@ public class MainActivity extends Activity{
     public void onRegisterGeofenceClicked(View view) {
 
         // first remove existing geoGeofence
-        removeGeofence();
+        // removeGeofence();
 
         /*
          * Record the request as an ADD. If a connection error occurs,

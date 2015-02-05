@@ -93,9 +93,11 @@ public class ReceiveTransitionsIntentService extends IntentService {
 
                 sendNotification(transitionType, ids);
 
-                // ToDo FoX
-                //(Geofence)(geofences.get(0)).
-                //saveToFirebase(ids, transitionType);
+                // Get device and transition data
+                String deviceId = (String)intent.getExtras().get("deviceid");
+
+                // Save transition to backend
+                saveToFirebase(deviceId, transitionType);
 
                 // Log the transition type and a message
                 Log.d(GeofenceUtils.APPTAG,
@@ -159,8 +161,8 @@ public class ReceiveTransitionsIntentService extends IntentService {
         mNotificationManager.notify(0, builder.build());
     }
 
-    private void saveToFirebase() {
-        firebaseConnector.addGeofenceItem();
+    private void saveToFirebase(String deviceId, String message) {
+        firebaseConnector.addTransition(deviceId, message);
     }
 
     /**

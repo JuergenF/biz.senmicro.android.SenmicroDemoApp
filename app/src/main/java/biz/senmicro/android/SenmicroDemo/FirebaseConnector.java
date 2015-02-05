@@ -17,8 +17,10 @@ public class FirebaseConnector {
 
 	public FirebaseConnector() {
 		rootRef = new Firebase("https://intense-fire-5365.firebaseio.com/");
+        //rootRef = new Firebase("https://burning-fire-7240.firebaseio.com/");
+
 		pushItems = rootRef.child("pushItems");
-        geofenceItems = rootRef.child("geofenceItems");
+        geofenceItems = rootRef.child("transitionItems");
 		
 		rootRef.child("writeItems").addChildEventListener(new ChildEventListener() {
 
@@ -71,13 +73,12 @@ public class FirebaseConnector {
 		pushItems.child(button).setValue(value);
 	}
 
-    public void addGeofenceItem() {
+    public void addTransition(String deviceId, String transitionMessage) {
         Firebase geofenceRef = geofenceItems.push();
         Map<String,Object> value = new HashMap<String,Object>();
-        value.put("phonenumber", "06641234567");
-        value.put("latitude", "12.34");
-        value.put("longitude", "98.76");
-        value.put("type", "enter geofence");
+        value.put("deviceId", deviceId);
+        value.put("transitionMessageType", "enter geofence");
+        value.put("timestamp", System.currentTimeMillis());
         geofenceRef.setValue(value);
     }
 }
