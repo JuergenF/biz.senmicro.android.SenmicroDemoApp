@@ -528,6 +528,53 @@
         </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/sub_title"
+            >
+            <TextView
+                android:layout_width="86dp"
+                android:layout_height="wrap_content"
+                android:text="@string/geofence_status_label"
+                android:paddingRight="35sp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/out_geofence"
+                android:id="@+id/TI0"
+                android:paddingRight="35sp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/sub_title"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:id="@+id/geofence_date"
+                android:paddingRight="35sp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
     <!-- Register and unregister geofences buttons. -->
 
     <LinearLayout

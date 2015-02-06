@@ -155,52 +155,65 @@ public class MainActivity extends FragmentActivity {
 			e1.printStackTrace();
 		}
         
-		firebaseConnector = new FirebaseConnector();
+		firebaseConnector = FirebaseConnector.getInstance();
 
        	accessoryManager = new USBAccessoryManager(this.getApplicationContext(), handler, USBAccessoryWhat);
 
         // Attach to the main UI
         setContentView(R.layout.main);
 
+        // Add leds
         try {
     		//Set the link to the message handler for this class
         	LEDControl ledControl;
-
-			ledControl = ((LEDControl)findViewById(R.id.DO0));
-			ledControl.setHandler(handler);
-			firebaseConnector.addLEDListener("DO0", ledControl);
-
-			ledControl = ((LEDControl)findViewById(R.id.DO1));
-			ledControl.setHandler(handler);
-			firebaseConnector.addLEDListener("DO1", ledControl);
-
-			ledControl = ((LEDControl)findViewById(R.id.DO2));
-			ledControl.setHandler(handler);
-			firebaseConnector.addLEDListener("DO2", ledControl);
-
-			ledControl = ((LEDControl)findViewById(R.id.DO3));
-			ledControl.setHandler(handler);
-			firebaseConnector.addLEDListener("DO3", ledControl);
-
-			ledControl = ((LEDControl)findViewById(R.id.DO4));
-			ledControl.setHandler(handler);
-			firebaseConnector.addLEDListener("DO4", ledControl);
-
-			ledControl = ((LEDControl)findViewById(R.id.DO5));
-			ledControl.setHandler(handler);
-			firebaseConnector.addLEDListener("DO5", ledControl);
-
-			ledControl = ((LEDControl)findViewById(R.id.DO6));
-			ledControl.setHandler(handler);
-			firebaseConnector.addLEDListener("DO6", ledControl);
 
 			ledControl = ((LEDControl)findViewById(R.id.DO7));
 			ledControl.setHandler(handler);
 			firebaseConnector.addLEDListener("DO7", ledControl);
 
+			ledControl = ((LEDControl)findViewById(R.id.DO6));
+			ledControl.setHandler(handler);
+			firebaseConnector.addLEDListener("DO6", ledControl);
+
+			ledControl = ((LEDControl)findViewById(R.id.DO5));
+			ledControl.setHandler(handler);
+			firebaseConnector.addLEDListener("DO5", ledControl);
+
+			ledControl = ((LEDControl)findViewById(R.id.DO4));
+			ledControl.setHandler(handler);
+			firebaseConnector.addLEDListener("DO4", ledControl);
+
+			ledControl = ((LEDControl)findViewById(R.id.DO3));
+			ledControl.setHandler(handler);
+			firebaseConnector.addLEDListener("DO3", ledControl);
+
+			ledControl = ((LEDControl)findViewById(R.id.DO2));
+			ledControl.setHandler(handler);
+			firebaseConnector.addLEDListener("DO2", ledControl);
+
+			ledControl = ((LEDControl)findViewById(R.id.DO1));
+			ledControl.setHandler(handler);
+			firebaseConnector.addLEDListener("DO1", ledControl);
+
+			ledControl = ((LEDControl)findViewById(R.id.DO0));
+			ledControl.setHandler(handler);
+			firebaseConnector.addLEDListener("DO0", ledControl);
+
         } catch (Exception e) {
         }
-        
+
+        // Add transition listener for button
+        try {
+            //Set the link to the message handler for this class
+
+            TextView ti0 = ((TextView)findViewById(R.id.TI0));
+            TextView dateView = ((TextView)findViewById(R.id.geofence_date));
+            //ledControl.setHandler(handler);
+            firebaseConnector.addTransitionListener("state", ti0);
+            firebaseConnector.addTransitionListener("date", dateView);
+        } catch (Exception e) {
+        }
+
         //Restore UI state from the savedInstanceState
         //  If the savedInstanceState Bundle exists, then there is saved data to
         //  restore.
@@ -217,7 +230,7 @@ public class MainActivity extends FragmentActivity {
         		
         		progressBar = (ProgressBar)findViewById(R.id.AI0);
         		progressBar.setProgress(savedInstanceState.getInt("AI0"));
-        		firebaseConnector.setValue("AI0", 0);
+        		firebaseConnector.setInputValue("AI0", 0);
         		
         		ledControl = (LEDControl)findViewById(R.id.DO7);
 				ledControl.setState(savedInstanceState.getBoolean("DO7"));
@@ -603,7 +616,7 @@ public class MainActivity extends FragmentActivity {
     	@Override
     	public void handleMessage(Message msg) {
     		byte[] commandPacket = new byte[2];
-    		
+
 			switch(msg.what)
 			{				
 			case UPDATE_LED_SETTING:
@@ -670,7 +683,7 @@ public class MainActivity extends FragmentActivity {
 							ProgressBar progressBar = (ProgressBar) findViewById(R.id.AI0);
 							
 							if((commandPacket[1] >= 0) && (commandPacket[1] <= progressBar.getMax())) {
-								firebaseConnector.setValue("AI0", commandPacket[1]);
+								firebaseConnector.setInputValue("AI0", commandPacket[1]);
 
 								progressBar.setProgress(commandPacket[1]);	
 							}
@@ -755,7 +768,7 @@ public class MainActivity extends FragmentActivity {
 		} else if (id==R.id.DI3) {
 			button="DI3";
 		}
-		firebaseConnector.setValue(button, pressed);
+		firebaseConnector.setInputValue(button, pressed);
 		
 		if(pressed)
 		{
@@ -1182,6 +1195,8 @@ public class MainActivity extends FragmentActivity {
     public void onUnregisterGeofenceClicked(View view) {
         removeGeofence();
 
+        updateButton(R.id.TI0,false);
+
         // Notify user that previous request hasn't finished.
         Toast.makeText(this, "Geofence gelöscht",
                 Toast.LENGTH_SHORT).show();
@@ -1249,6 +1264,5 @@ public class MainActivity extends FragmentActivity {
                     Toast.LENGTH_SHORT).show();
         }
     }
-    
 
 } //Class definition SenmicroDemoApp

@@ -31,7 +31,7 @@ public class ReceiveTransitionsIntentService extends IntentService {
     public ReceiveTransitionsIntentService() {
 
         super("ReceiveTransitionsIntentService");
-        firebaseConnector = new FirebaseConnector();
+        firebaseConnector = FirebaseConnector.getInstance();
     }
 
     /**
