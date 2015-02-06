@@ -12,17 +12,16 @@ public class FirebaseConnector {
 
 	private Firebase rootRef;
 	private Map<String,LEDControl> ledControls = new HashMap<String,LEDControl>();
-	private Firebase pushItems;
-    private Firebase geofenceItems;
+	private Firebase inputItems;
+    private Firebase transitionItems;
 
 	public FirebaseConnector() {
 		rootRef = new Firebase("https://intense-fire-5365.firebaseio.com/");
-        //rootRef = new Firebase("https://burning-fire-7240.firebaseio.com/");
 
-		pushItems = rootRef.child("pushItems");
-        geofenceItems = rootRef.child("transitionItems");
+        inputItems = rootRef.child("inputItems");
+        transitionItems = rootRef.child("transitionItems");
 		
-		rootRef.child("writeItems").addChildEventListener(new ChildEventListener() {
+		rootRef.child("outputItems").addChildEventListener(new ChildEventListener() {
 
 			@Override
 			public void onCancelled(FirebaseError paramFirebaseError) {
@@ -70,15 +69,16 @@ public class FirebaseConnector {
 		Map<String,Object> value = new HashMap<String,Object>();
 		value.put("value", val);
 		value.put("timestamp", System.currentTimeMillis());
-		pushItems.child(button).setValue(value);
+        inputItems.child(button).setValue(value);
 	}
 
     public void addTransition(String deviceId, String transitionMessage) {
-        Firebase geofenceRef = geofenceItems.push();
+        Firebase geofenceRef = transitionItems.push();
         Map<String,Object> value = new HashMap<String,Object>();
         value.put("deviceId", deviceId);
-        value.put("transitionMessageType", "enter geofence");
+        value.put("transitionMessage", transitionMessage);
         value.put("timestamp", System.currentTimeMillis());
+        // ToDo Fox  Datum hinzufügen
         geofenceRef.setValue(value);
     }
 }

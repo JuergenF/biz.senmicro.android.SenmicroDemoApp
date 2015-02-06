@@ -9,7 +9,20 @@
     android:layout_height="fill_parent"
     >
 
-    <!-- Title bar for LED controls -->
+    <!-- Title bar for IO -->
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background='@color/title_bar'
+        >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/io_header"/>
+    </LinearLayout>
+    <!-- Title bar for digital output (LEDs) controls -->
     
     <LinearLayout
     android:orientation="horizontal"
@@ -20,9 +33,7 @@
 		<TextView  
 	    android:layout_width="fill_parent" 
 	    android:layout_height="wrap_content" 
-	    android:text="@string/led_header"
-	    android:id="@+id/text_view1"
-	    />
+	    android:text="@string/led_header"/>
     </LinearLayout>
     
     <!-- LED control buttons -->
@@ -36,7 +47,7 @@
 
 		<view
 		class="biz.senmicro.android.SenmicroDemo.LEDControl"
-		android:id="@+id/led_7"
+		android:id="@+id/DO0"
 		android:layout_height="wrap_content" 
 		android:src="@drawable/led_off"
 		android:background="@null" 
@@ -44,7 +55,7 @@
 		/>
 		<view
 		class="biz.senmicro.android.SenmicroDemo.LEDControl"
-		android:id="@+id/led_6"
+		android:id="@+id/DO1"
 		android:layout_height="wrap_content" 
 		android:src="@drawable/led_off"
 		android:background="@null" 
@@ -52,7 +63,7 @@
 		/>
 		<view
 		class="biz.senmicro.android.SenmicroDemo.LEDControl"
-		android:id="@+id/led_5"
+		android:id="@+id/DO2"
 		android:layout_height="wrap_content" 
 		android:src="@drawable/led_off"
 		android:background="@null" 
@@ -60,7 +71,7 @@
 		/>
 		<view
 		class="biz.senmicro.android.SenmicroDemo.LEDControl"
-		android:id="@+id/led_4"
+		android:id="@+id/DO3"
 		android:layout_height="wrap_content" 
 		android:src="@drawable/led_off"
 		android:background="@null" 
@@ -68,7 +79,7 @@
 		/>
 		<view
 		class="biz.senmicro.android.SenmicroDemo.LEDControl"
-		android:id="@+id/led_3"
+		android:id="@+id/DO4"
 		android:layout_height="wrap_content" 
 		android:src="@drawable/led_off"
 		android:background="@null" 
@@ -76,7 +87,7 @@
 		/>
 		<view
 		class="biz.senmicro.android.SenmicroDemo.LEDControl"
-		android:id="@+id/led_2"
+		android:id="@+id/DO5"
 		android:layout_height="wrap_content" 
 		android:src="@drawable/led_off"
 		android:background="@null" 
@@ -84,7 +95,7 @@
 		/>
 		<view
 		class="biz.senmicro.android.SenmicroDemo.LEDControl"
-		android:id="@+id/led_1"
+		android:id="@+id/DO6"
 		android:layout_height="wrap_content" 
 		android:src="@drawable/led_off"
 		android:background="@null" 
@@ -92,7 +103,7 @@
 		/>
 		<view
 		class="biz.senmicro.android.SenmicroDemo.LEDControl"
-		android:id="@+id/led_0"
+		android:id="@+id/DO7"
 		android:layout_height="wrap_content" 
 		android:src="@drawable/led_off"
 		android:background="@null" 
@@ -102,7 +113,7 @@
 	</LinearLayout>
 
 
-	<!-- Title bar for push buttons -->
+	<!-- Title bar for digital output (Buttons) -->
 	
     <LinearLayout
     android:orientation="horizontal"
@@ -134,7 +145,7 @@
 		    <TextView  
 		    android:layout_width="fill_parent" 
 		    android:layout_height="wrap_content" 
-		    android:text="@string/button_1"
+		    android:text="@string/DI0"
 		    android:paddingRight="8sp"
 		    />
     	</LinearLayout>
@@ -148,7 +159,7 @@
 		    android:layout_width="fill_parent" 
 		    android:layout_height="wrap_content" 
 		    android:text="@string/not_pressed"
-		    android:id="@+id/button1"
+		    android:id="@+id/DI0"
 		    />
 		</LinearLayout>
     </LinearLayout>
@@ -169,7 +180,7 @@
 		    <TextView  
 		    android:layout_width="fill_parent" 
 		    android:layout_height="wrap_content" 
-		    android:text="@string/button_2"
+		    android:text="@string/DI1"
 		    android:paddingRight="8sp"
 		    />
     	</LinearLayout>
@@ -183,7 +194,7 @@
 		    android:layout_width="fill_parent" 
 		    android:layout_height="wrap_content" 
 		    android:text="@string/not_pressed"
-		    android:id="@+id/button2"
+		    android:id="@+id/DI1"
 		    />
 		</LinearLayout>
     </LinearLayout>
@@ -204,7 +215,7 @@
 		    <TextView  
 		    android:layout_width="fill_parent" 
 		    android:layout_height="wrap_content" 
-		    android:text="@string/button_3"
+		    android:text="@string/DI2"
 		    android:paddingRight="8sp"
 		    />
     	</LinearLayout>
@@ -218,7 +229,7 @@
 		    android:layout_width="fill_parent" 
 		    android:layout_height="wrap_content" 
 		    android:text="@string/not_pressed"
-		    android:id="@+id/button3"
+		    android:id="@+id/DI2"
 		    />
 		</LinearLayout>
     </LinearLayout>
@@ -239,7 +250,7 @@
 		    <TextView  
 		    android:layout_width="fill_parent" 
 		    android:layout_height="wrap_content" 
-		    android:text="@string/button_4"
+		    android:text="@string/DI3"
 		    android:paddingRight="8sp"
 		    />
     	</LinearLayout>
@@ -253,7 +264,7 @@
 		    android:layout_width="fill_parent" 
 		    android:layout_height="wrap_content" 
 		    android:text="@string/not_pressed"
-		    android:id="@+id/button4"
+		    android:id="@+id/DI3"
 		    />
 		</LinearLayout>
     </LinearLayout>
@@ -278,11 +289,25 @@
     <ProgressBar
     android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
-	android:id="@+id/progress_bar"
+	android:id="@+id/AI0"
 	android:progress="0"
 	android:max="100"
 	style="?android:attr/progressBarStyleHorizontal"
     />
+
+    <!-- Title bar for Geofence -->
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background='@color/title_bar'
+        >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/geofence_header" />
+    </LinearLayout>
 
     <!-- Creating actual data area -->
 
@@ -311,10 +336,10 @@
             android:background="@color/sub_title"
             >
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="79dp"
                 android:layout_height="wrap_content"
                 android:text="@string/actual_imei_label"
-                android:paddingRight="52sp"/>
+                android:paddingRight="0sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -431,9 +456,10 @@
             >
             <EditText
                 android:id="@+id/value_latitude_1"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal|numberSigned"/>
+                android:textSize="15sp"
+                android:inputType="numberDecimal|numberSigned" />
         </LinearLayout>
     </LinearLayout>
 
@@ -462,8 +488,9 @@
             >
             <EditText
                 android:id="@+id/value_longitude_1"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="15sp"
                 android:inputType="numberDecimal|numberSigned"/>
         </LinearLayout>
     </LinearLayout>
@@ -493,8 +520,9 @@
             >
             <EditText
                 android:id="@+id/value_radius_1"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="15sp"
                 android:text="@string/radius_default_value"
                 android:inputType="numberDecimal"/>
         </LinearLayout>
@@ -505,7 +533,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
 
         <Button
             android:id="@+id/register"
@@ -514,7 +543,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/register_geofence"
-            android:onClick="onRegisterGeofenceClicked" />
+            android:onClick="onRegisterGeofenceClicked"
+            android:textSize="15dp" />
         <Button
             android:id="@+id/unregister"
             android:layout_below="@id/value_radius_1"
@@ -523,7 +553,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/unregister_geofence"
-            android:onClick="onUnregisterGeofenceClicked" />
+            android:onClick="onUnregisterGeofenceClicked"
+            android:textSize="15dp" />
         <Button
             android:id="@+id/set_to_here"
             android:layout_below="@id/value_radius_1"
@@ -532,7 +563,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/set_to_here"
-            android:onClick="onSetToHereClicked" />
+            android:onClick="onSetToHereClicked"
+            android:textSize="15dp" />
     </LinearLayout>
 
     <!-- Senmicro Logo. -->

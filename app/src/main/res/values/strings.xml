@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Senmicro Demo App</string>
+
+    <string name="io_header">Ein-/Ausgänge</string>
+    <string name="led_header">Digitale Ausgänge</string>
+    <string name="button_header">Digitale Eingänge</string>
+    <string name="pot_header">Analoger Eingang</string>
     
-    <string name="led_header">LEDs</string>
-    <string name="button_header">Taster Status</string>
-    <string name="pot_header">Potentiometer</string>
+    <string name="DI0">Digital Eingang 0:</string>
+    <string name="DI1">Digital Eingang 1:</string>
+    <string name="DI2">Digital Eingang 2:</string>
+    <string name="DI3">Digital Eingang 3:</string>
     
-    <string name="button_1">Taster 1:</string>
-    <string name="button_2">Taster 2:</string>
-    <string name="button_3">Taster 3:</string>
-    <string name="button_4">Taster 4:</string>
-    
-    <string name="not_pressed">Nicht gedrückt.</string>
-    <string name="pressed">Gedrückt.</string>
+    <string name="not_pressed">Aus</string>
+    <string name="pressed">Ein</string>
     
     <string name="weblink">www.senmicro.biz/android</string>
     
@@ -21,12 +22,12 @@
     <string name="error_firmware_protocol">The firmware version on the attached device requires a protocol that is not supported by this version of the application.  Please check the Android Marketplace to see if there is an update available for this application. If you are using the source version, please check www.senmicro.biz for the latest application source code.</string>
 
 
-    <string name="actual_data">Aktuelle Daten</string>
-    <string name="actual_imei_label">IMEI</string>
-    <string name="geofence">Geofence</string>
+    <string name="geofence_header">Lokalisierung</string>
+    <string name="actual_data">Aktuelle GEO Daten</string>
+    <string name="actual_imei_label">Gerät-ID</string>
+    <string name="geofence">Lokalisationsbereich (Geofence)</string>
     <string name="latitude_label">Breitengrad</string>
     <string name="longitude_label">Längengrad</string>
-    <string name="menu_item_clear_geofence">Lösche Geofence</string>
     <string name="register_geofence">Speichere Geofence</string>
     <string name="unregister_geofence">Lösche Geofence</string>
     <string name="set_to_here">Aktuelle Position</string>

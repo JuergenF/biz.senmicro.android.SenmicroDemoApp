@@ -166,37 +166,37 @@ public class MainActivity extends FragmentActivity {
     		//Set the link to the message handler for this class
         	LEDControl ledControl;
 
-			ledControl = ((LEDControl)findViewById(R.id.led_0));
+			ledControl = ((LEDControl)findViewById(R.id.DO0));
 			ledControl.setHandler(handler);
-			firebaseConnector.addLEDListener("led_0", ledControl);
+			firebaseConnector.addLEDListener("DO0", ledControl);
 
-			ledControl = ((LEDControl)findViewById(R.id.led_1));
+			ledControl = ((LEDControl)findViewById(R.id.DO1));
 			ledControl.setHandler(handler);
-			firebaseConnector.addLEDListener("led_1", ledControl);
+			firebaseConnector.addLEDListener("DO1", ledControl);
 
-			ledControl = ((LEDControl)findViewById(R.id.led_2));
+			ledControl = ((LEDControl)findViewById(R.id.DO2));
 			ledControl.setHandler(handler);
-			firebaseConnector.addLEDListener("led_2", ledControl);
+			firebaseConnector.addLEDListener("DO2", ledControl);
 
-			ledControl = ((LEDControl)findViewById(R.id.led_3));
+			ledControl = ((LEDControl)findViewById(R.id.DO3));
 			ledControl.setHandler(handler);
-			firebaseConnector.addLEDListener("led_3", ledControl);
+			firebaseConnector.addLEDListener("DO3", ledControl);
 
-			ledControl = ((LEDControl)findViewById(R.id.led_4));
+			ledControl = ((LEDControl)findViewById(R.id.DO4));
 			ledControl.setHandler(handler);
-			firebaseConnector.addLEDListener("led_4", ledControl);
+			firebaseConnector.addLEDListener("DO4", ledControl);
 
-			ledControl = ((LEDControl)findViewById(R.id.led_5));
+			ledControl = ((LEDControl)findViewById(R.id.DO5));
 			ledControl.setHandler(handler);
-			firebaseConnector.addLEDListener("led_5", ledControl);
+			firebaseConnector.addLEDListener("DO5", ledControl);
 
-			ledControl = ((LEDControl)findViewById(R.id.led_6));
+			ledControl = ((LEDControl)findViewById(R.id.DO6));
 			ledControl.setHandler(handler);
-			firebaseConnector.addLEDListener("led_6", ledControl);
+			firebaseConnector.addLEDListener("DO6", ledControl);
 
-			ledControl = ((LEDControl)findViewById(R.id.led_7));
+			ledControl = ((LEDControl)findViewById(R.id.DO7));
 			ledControl.setHandler(handler);
-			firebaseConnector.addLEDListener("led_7", ledControl);
+			firebaseConnector.addLEDListener("DO7", ledControl);
 
         } catch (Exception e) {
         }
@@ -210,38 +210,38 @@ public class MainActivity extends FragmentActivity {
         		LEDControl ledControl;
         		ProgressBar progressBar;
 
-        		updateButton(R.id.button4,savedInstanceState.getBoolean("BUTTON4"));
-        		updateButton(R.id.button3,savedInstanceState.getBoolean("BUTTON3"));
-        		updateButton(R.id.button2,savedInstanceState.getBoolean("BUTTON2"));
-        		updateButton(R.id.button1,savedInstanceState.getBoolean("BUTTON1"));
+        		updateButton(R.id.DI3,savedInstanceState.getBoolean("DI3"));
+        		updateButton(R.id.DI2,savedInstanceState.getBoolean("DI2"));
+        		updateButton(R.id.DI1,savedInstanceState.getBoolean("DI1"));
+        		updateButton(R.id.DI0,savedInstanceState.getBoolean("DI0"));
         		
-        		progressBar = (ProgressBar)findViewById(R.id.progress_bar);
-        		progressBar.setProgress(savedInstanceState.getInt("POT"));
-        		firebaseConnector.setValue("progress_bar", 0);
+        		progressBar = (ProgressBar)findViewById(R.id.AI0);
+        		progressBar.setProgress(savedInstanceState.getInt("AI0"));
+        		firebaseConnector.setValue("AI0", 0);
         		
-        		ledControl = (LEDControl)findViewById(R.id.led_7);
-				ledControl.setState(savedInstanceState.getBoolean("LED7"));
+        		ledControl = (LEDControl)findViewById(R.id.DO7);
+				ledControl.setState(savedInstanceState.getBoolean("DO7"));
         		
-				ledControl = (LEDControl)findViewById(R.id.led_6);
-				ledControl.setState(savedInstanceState.getBoolean("LED6"));
+				ledControl = (LEDControl)findViewById(R.id.DO6);
+				ledControl.setState(savedInstanceState.getBoolean("DO6"));
 
-				ledControl = (LEDControl)findViewById(R.id.led_5);
-				ledControl.setState(savedInstanceState.getBoolean("LED5"));
+				ledControl = (LEDControl)findViewById(R.id.DO5);
+				ledControl.setState(savedInstanceState.getBoolean("DO5"));
 				
-				ledControl = (LEDControl)findViewById(R.id.led_4);
-				ledControl.setState(savedInstanceState.getBoolean("LED4"));
+				ledControl = (LEDControl)findViewById(R.id.DO4);
+				ledControl.setState(savedInstanceState.getBoolean("DO4"));
 				
-				ledControl = (LEDControl)findViewById(R.id.led_3);
-				ledControl.setState(savedInstanceState.getBoolean("LED3"));
+				ledControl = (LEDControl)findViewById(R.id.DO3);
+				ledControl.setState(savedInstanceState.getBoolean("DO3"));
 				
-				ledControl = (LEDControl)findViewById(R.id.led_2);
-				ledControl.setState(savedInstanceState.getBoolean("LED2"));
+				ledControl = (LEDControl)findViewById(R.id.DO2);
+				ledControl.setState(savedInstanceState.getBoolean("DO2"));
 				
-				ledControl = (LEDControl)findViewById(R.id.led_1);
-				ledControl.setState(savedInstanceState.getBoolean("LED1"));
+				ledControl = (LEDControl)findViewById(R.id.DO1);
+				ledControl.setState(savedInstanceState.getBoolean("DO1"));
 				
-				ledControl = (LEDControl)findViewById(R.id.led_0);
-				ledControl.setState(savedInstanceState.getBoolean("LED0"));
+				ledControl = (LEDControl)findViewById(R.id.DO0);
+				ledControl.setState(savedInstanceState.getBoolean("DO0"));
 						
         	} catch (Exception e) {
         		//Just in case there is some way for the savedInstanceState to exist but for a single
@@ -481,21 +481,21 @@ public class MainActivity extends FragmentActivity {
     	//  The state of the potentiometer and push buttons can be read and restored
     	//  from their current hardware state.
     	
-		savedInstanceState.putBoolean("LED0", ((LEDControl)findViewById(R.id.led_0)).getState());
-		savedInstanceState.putBoolean("LED1", ((LEDControl)findViewById(R.id.led_1)).getState());
-		savedInstanceState.putBoolean("LED2", ((LEDControl)findViewById(R.id.led_2)).getState());
-		savedInstanceState.putBoolean("LED3", ((LEDControl)findViewById(R.id.led_3)).getState()); 
-		savedInstanceState.putBoolean("LED4", ((LEDControl)findViewById(R.id.led_4)).getState());
-		savedInstanceState.putBoolean("LED5", ((LEDControl)findViewById(R.id.led_5)).getState());
-		savedInstanceState.putBoolean("LED6", ((LEDControl)findViewById(R.id.led_6)).getState());
-		savedInstanceState.putBoolean("LED7", ((LEDControl)findViewById(R.id.led_7)).getState());
+		savedInstanceState.putBoolean("DO0", ((LEDControl)findViewById(R.id.DO0)).getState());
+		savedInstanceState.putBoolean("DO1", ((LEDControl)findViewById(R.id.DO1)).getState());
+		savedInstanceState.putBoolean("DO2", ((LEDControl)findViewById(R.id.DO2)).getState());
+		savedInstanceState.putBoolean("DO3", ((LEDControl)findViewById(R.id.DO3)).getState());
+		savedInstanceState.putBoolean("DO4", ((LEDControl)findViewById(R.id.DO4)).getState());
+		savedInstanceState.putBoolean("DO5", ((LEDControl)findViewById(R.id.DO5)).getState());
+		savedInstanceState.putBoolean("DO6", ((LEDControl)findViewById(R.id.DO6)).getState());
+		savedInstanceState.putBoolean("DO7", ((LEDControl)findViewById(R.id.DO7)).getState());
 		
-		savedInstanceState.putInt("POT", ((ProgressBar)findViewById(R.id.progress_bar)).getProgress());
+		savedInstanceState.putInt("AI0", ((ProgressBar)findViewById(R.id.AI0)).getProgress());
 		
-		savedInstanceState.putBoolean("BUTTON1", isButtonPressed(R.id.button1));
-		savedInstanceState.putBoolean("BUTTON2", isButtonPressed(R.id.button2));
-		savedInstanceState.putBoolean("BUTTON3", isButtonPressed(R.id.button3));
-		savedInstanceState.putBoolean("BUTTON4", isButtonPressed(R.id.button4));
+		savedInstanceState.putBoolean("DI0", isButtonPressed(R.id.DI0));
+		savedInstanceState.putBoolean("DI1", isButtonPressed(R.id.DI1));
+		savedInstanceState.putBoolean("DI2", isButtonPressed(R.id.DI2));
+		savedInstanceState.putBoolean("DI3", isButtonPressed(R.id.DI3));
 		
 		//Call the super function that we are over writing now that we have saved our data.
 		super.onSaveInstanceState(savedInstanceState);
@@ -560,36 +560,36 @@ public class MainActivity extends FragmentActivity {
 		LEDControl ledControl;
 		ProgressBar progressBar;
 
-		updateButton(R.id.button4,false);
-		updateButton(R.id.button3,false);
-		updateButton(R.id.button2,false);
-		updateButton(R.id.button1,false);
+		updateButton(R.id.DI3,false);
+		updateButton(R.id.DI2,false);
+		updateButton(R.id.DI1,false);
+		updateButton(R.id.DI0,false);
 		
-		progressBar = (ProgressBar)findViewById(R.id.progress_bar);
+		progressBar = (ProgressBar)findViewById(R.id.AI0);
 		progressBar.setProgress(0);
 		
-		ledControl = (LEDControl)findViewById(R.id.led_7);
+		ledControl = (LEDControl)findViewById(R.id.DO7);
 		ledControl.setState(false);
 		
-		ledControl = (LEDControl)findViewById(R.id.led_6);
+		ledControl = (LEDControl)findViewById(R.id.DO6);
 		ledControl.setState(false);
 
-		ledControl = (LEDControl)findViewById(R.id.led_5);
+		ledControl = (LEDControl)findViewById(R.id.DO5);
 		ledControl.setState(false);
 		
-		ledControl = (LEDControl)findViewById(R.id.led_4);
+		ledControl = (LEDControl)findViewById(R.id.DO4);
 		ledControl.setState(false);
 		
-		ledControl = (LEDControl)findViewById(R.id.led_3);
+		ledControl = (LEDControl)findViewById(R.id.DO3);
 		ledControl.setState(false);
 		
-		ledControl = (LEDControl)findViewById(R.id.led_2);
+		ledControl = (LEDControl)findViewById(R.id.DO2);
 		ledControl.setState(false);
 		
-		ledControl = (LEDControl)findViewById(R.id.led_1);
+		ledControl = (LEDControl)findViewById(R.id.DO1);
 		ledControl.setState(false);
 		
-		ledControl = (LEDControl)findViewById(R.id.led_0);
+		ledControl = (LEDControl)findViewById(R.id.DO0);
 		ledControl.setState(false);
 		
 		LEDButtonEnable(false);
@@ -614,35 +614,35 @@ public class MainActivity extends FragmentActivity {
 				commandPacket[0] = UPDATE_LED_SETTING;
 				commandPacket[1] = 0;
 				
-				if(((LEDControl)findViewById(R.id.led_0)).getState()) {
+				if(((LEDControl)findViewById(R.id.DO0)).getState()) {
 					commandPacket[1] |= LED_0_ON;
 				}
 				
-				if(((LEDControl)findViewById(R.id.led_1)).getState()) {
+				if(((LEDControl)findViewById(R.id.DO1)).getState()) {
 					commandPacket[1] |= LED_1_ON;
 				}
 				
-				if(((LEDControl)findViewById(R.id.led_2)).getState()) {
+				if(((LEDControl)findViewById(R.id.DO2)).getState()) {
 					commandPacket[1] |= LED_2_ON;
 				}
 				
-				if(((LEDControl)findViewById(R.id.led_3)).getState()) {
+				if(((LEDControl)findViewById(R.id.DO3)).getState()) {
 					commandPacket[1] |= LED_3_ON;
 				}
 				
-				if(((LEDControl)findViewById(R.id.led_4)).getState()) {
+				if(((LEDControl)findViewById(R.id.DO4)).getState()) {
 					commandPacket[1] |= LED_4_ON;
 				}
 				
-				if(((LEDControl)findViewById(R.id.led_5)).getState()) {
+				if(((LEDControl)findViewById(R.id.DO5)).getState()) {
 					commandPacket[1] |= LED_5_ON;
 				}
 				
-				if(((LEDControl)findViewById(R.id.led_6)).getState()) {
+				if(((LEDControl)findViewById(R.id.DO6)).getState()) {
 					commandPacket[1] |= LED_6_ON;
 				}
 				
-				if(((LEDControl)findViewById(R.id.led_7)).getState()) {
+				if(((LEDControl)findViewById(R.id.DO7)).getState()) {
 					commandPacket[1] |= LED_7_ON;
 				}
 				
@@ -667,19 +667,19 @@ public class MainActivity extends FragmentActivity {
 						
 						switch(commandPacket[0]) {
 						case POT_STATUS_CHANGE:
-							ProgressBar progressBar = (ProgressBar) findViewById(R.id.progress_bar);
+							ProgressBar progressBar = (ProgressBar) findViewById(R.id.AI0);
 							
 							if((commandPacket[1] >= 0) && (commandPacket[1] <= progressBar.getMax())) {
-								firebaseConnector.setValue("progress_bar", commandPacket[1]);
+								firebaseConnector.setValue("AI0", commandPacket[1]);
 
 								progressBar.setProgress(commandPacket[1]);	
 							}
 							break;
 						case PUSHBUTTON_STATUS_CHANGE:
-			    			updateButton(R.id.button1, ((commandPacket[1] & BUTTON_1_PRESSED) == BUTTON_1_PRESSED)?true:false);
-			    			updateButton(R.id.button2, ((commandPacket[1] & BUTTON_2_PRESSED) == BUTTON_2_PRESSED)?true:false);
-			    			updateButton(R.id.button3, ((commandPacket[1] & BUTTON_3_PRESSED) == BUTTON_3_PRESSED)?true:false);
-			    			updateButton(R.id.button4, ((commandPacket[1] & BUTTON_4_PRESSED) == BUTTON_4_PRESSED)?true:false);
+			    			updateButton(R.id.DI0, ((commandPacket[1] & BUTTON_1_PRESSED) == BUTTON_1_PRESSED)?true:false);
+			    			updateButton(R.id.DI1, ((commandPacket[1] & BUTTON_2_PRESSED) == BUTTON_2_PRESSED)?true:false);
+			    			updateButton(R.id.DI2, ((commandPacket[1] & BUTTON_3_PRESSED) == BUTTON_3_PRESSED)?true:false);
+			    			updateButton(R.id.DI3, ((commandPacket[1] & BUTTON_4_PRESSED) == BUTTON_4_PRESSED)?true:false);
 			    			break;
 						}
 						
@@ -747,13 +747,13 @@ public class MainActivity extends FragmentActivity {
 		textviewToUpdate = (TextView)findViewById(id);
 		layoutToUpdate = (LinearLayout)textviewToUpdate.getParent();
 		
-		String button="button_1";
-		if (id==R.id.button2) {
-			button="button_2";
-		} else if (id==R.id.button3) {
-			button="button_3";
-		} else if (id==R.id.button4) {
-			button="button_4";
+		String button="DI0";
+		if (id==R.id.DI1) {
+			button="DI1";
+		} else if (id==R.id.DI2) {
+			button="DI2";
+		} else if (id==R.id.DI3) {
+			button="DI3";
 		}
 		firebaseConnector.setValue(button, pressed);
 		
@@ -781,28 +781,28 @@ public class MainActivity extends FragmentActivity {
 		// Set the link to the message handler for this class
 		LEDControl ledControl;
 
-		ledControl = ((LEDControl) findViewById(R.id.led_0));
+		ledControl = ((LEDControl) findViewById(R.id.DO0));
 		ledControl.setEnabled(enabled);
 
-		ledControl = ((LEDControl) findViewById(R.id.led_1));
+		ledControl = ((LEDControl) findViewById(R.id.DO1));
 		ledControl.setEnabled(enabled);
 
-		ledControl = ((LEDControl) findViewById(R.id.led_2));
+		ledControl = ((LEDControl) findViewById(R.id.DO2));
 		ledControl.setEnabled(enabled);
 
-		ledControl = ((LEDControl) findViewById(R.id.led_3));
+		ledControl = ((LEDControl) findViewById(R.id.DO3));
 		ledControl.setEnabled(enabled);
 
-		ledControl = ((LEDControl) findViewById(R.id.led_4));
+		ledControl = ((LEDControl) findViewById(R.id.DO4));
 		ledControl.setEnabled(enabled);
 
-		ledControl = ((LEDControl) findViewById(R.id.led_5));
+		ledControl = ((LEDControl) findViewById(R.id.DO5));
 		ledControl.setEnabled(enabled);
 
-		ledControl = ((LEDControl) findViewById(R.id.led_6));
+		ledControl = ((LEDControl) findViewById(R.id.DO6));
 		ledControl.setEnabled(enabled);
 
-		ledControl = ((LEDControl) findViewById(R.id.led_7));
+		ledControl = ((LEDControl) findViewById(R.id.DO7));
 		ledControl.setEnabled(enabled);
 	}
 
